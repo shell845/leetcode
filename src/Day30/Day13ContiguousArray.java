@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Day12ContiguousArray {
+public class Day13ContiguousArray {
     /** time complexity O(n), space O(n) */
     public int findMaxLength(int[] nums) {
         int[] arr = new int[nums.length * 2 + 1];

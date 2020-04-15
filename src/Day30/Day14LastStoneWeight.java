@@ -6,7 +6,7 @@ package Day30;
 
 import java.util.Arrays;
 
-public class Day11LastStoneWeight {
+public class Day14LastStoneWeight {
     /** Solution 1: use Arrays.sort() */
 
     /** Solution 2: self write quickSort and insertionSort */
@@ -89,7 +89,7 @@ public class Day11LastStoneWeight {
     }
 
     public static void main(String[] args) {
-        Day11LastStoneWeight test = new Day11LastStoneWeight();
+        Day14LastStoneWeight test = new Day14LastStoneWeight();
         int[] arr = new int[] {2, 7, 4, 1, 8, 1};
         test.lastStoneWeight(arr);
         System.out.println(Arrays.toString(arr));
