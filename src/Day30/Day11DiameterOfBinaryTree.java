@@ -25,8 +25,8 @@ public class Day11DiameterOfBinaryTree {
     private int postOrder(TreeNode node) {
         if (node == null) return 0;
 
-        int left = postOrder(node.left);;
-        int right = postOrder(node.right);;
+        int left = postOrder(node.left);
+        int right = postOrder(node.right);
         diameter = Math.max(diameter, left + right);
         return Math.max(left, right) + 1;
     }

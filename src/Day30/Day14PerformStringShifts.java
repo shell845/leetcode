@@ -11,8 +11,7 @@ public class Day14PerformStringShifts {
         boolean left = false;
         int len = s.length();
         for (int i = 0; i < shift.length; i++) {
-            if (shift[i][0] == 0) left = true;
-            else left = false;
+            left = shift[i][0] == 0;
             int offset = shift[i][1] % len;
             String a = "";
             String b = "";
