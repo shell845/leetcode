@@ -7,6 +7,39 @@ import java.util.Deque;
  */
 
 public class _59_SlidingWindow {
+
+    /** time complexity for push_back / pop_front / max_value O(1), space O(n) */
+    class MaxQueue {
+        int index = 0;
+        Deque<int[]> deque = new ArrayDeque<>();
+        Deque<int[]> max = new ArrayDeque<>();
+
+        public MaxQueue() {
+        }
+
+        public int max_value() {
+            if (max.isEmpty()) return -1;
+            return max.peek()[0];
+        }
+
+        public void push_back(int value) {
+            int[] e = new int[]{value, index};
+            index++;
+            deque.add(e);
+            while(!max.isEmpty() && max.getLast()[0] < value) {
+                max.removeLast();
+            }
+            max.add(e);
+        }
+
+        public int pop_front() {
+            if (deque.isEmpty()) return -1;
+            int[] value = deque.poll();
+            if (max.peek()[1] == value[1]) max.poll();
+            return value[0];
+        }
+    }
+
     /** leetcode #239
      * * time complexity O(n), space O(n) */
     public static int[] slidingWindowMax(final int[] in, final int w) {
