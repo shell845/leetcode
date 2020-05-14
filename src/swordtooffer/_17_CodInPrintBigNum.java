@@ -14,15 +14,15 @@ public class _17_CodInPrintBigNum {
             c[i] = '0';
         }
 
-        /* while loop */
+        /* solution 1: while loop */
         while (!increment(c)) {
             printNumber(c);
         }
 
-        /* recursion */
+        /* solution 2: recursion */
         incrementRecursive(c, n, -1);
 
-        /* StringBuilder */
+        /* solution 3: StringBuilder */
         StringBuilder sb = new StringBuilder("0");
         while(incrementStringBuilder(sb, n)) {
             System.out.println(sb.reverse().toString());
