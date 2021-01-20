@@ -13,14 +13,35 @@ public class RemoveDuplicateAdjacent {
     */
 
     public int[] removeDuplicatedAdjacent(int[] nums) {
+        /* use array as stack */
+        int i = 0;
+        for (int j = 0; j < nums.length; ++i, ++j) {
+            nums[i] = nums[j];
+            if (i > 0 && nums[i] == nums[i - 1]) i -= 2;
+        }
+        return Arrays.copyOfRange(nums, 0, i);
+
+        /*
+        // use stringbuilder as stack for char
+        StringBuilder sb = new StringBuilder();
+        int len = 0;
+        for (char c : S.toCharArray()) {
+            if (len > 0 && sb.charAt(len - 1) == c) {
+                sb.deleteCharAt(len - 1);
+                len--;
+            } else {
+                sb.append(c);
+                len++;
+            }
+        }
+        return sb.toString();
+         */
+
+        /* use stack
         Deque<Integer> stack = new LinkedList<>();
-        boolean duplicate = false;
         for (int n : nums) {
-            if (!stack.isEmpty() && stack.peekLast() == n) {
-                duplicate = true;
-            } else if (duplicate) {
+            if (!stack.isEmpty() && stack.peek() == n) {
                 stack.pop();
-                duplicate = false;
             } else stack.push(n);
         }
 
@@ -30,6 +51,7 @@ public class RemoveDuplicateAdjacent {
             ans[i] = stack.pop();
         }
         return ans;
+        */
     }
 
     public static void main(String args[]) {
